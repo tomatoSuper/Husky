@@ -1,0 +1,68 @@
+@charset "UTF-8";
+$span_length: 12;
+/*固定栅格系统*/
+
+/*栅格的左边距*/
+$span_margin: 20px;
+/*栅格的的宽度*/
+$span_width: 60px;
+/*栅格数量*/
+.row {
+  /*抵消第一个栅格的左边距*/
+  min-height:1px;
+}
+.row [class*="col"] {
+  float: left;
+  min-height:1px;
+}
+@mixin col ($length) {
+  @for $index from 1 through $length {
+    .row .col-#{$index} {
+      width: percentage($index / $length);
+    }
+  }
+}
+@mixin offset ($length) {
+  @for $index from 1 through $length {
+    .row .offset-#{$index} {
+      margin-left: percentage($index / $length);
+    }
+  }
+}
+@include col($span_length);
+@include offset($span_length);
+/*自动栅格系统*/
+
+/*栅格的宽度和左边距之比*/
+$span_width_margin_scale: 3;
+/*栅格的左边距比例*/
+$span_margin_percentage: (1 / ($span_length * ($span_width_margin_scale + 1) - 1));
+.row-fluid {
+  width: 100%;
+  min-height:1px;
+}
+.row-fluid [class*="span"]:first-child {
+  margin-left: 0;
+}
+.row-fluid [class*="span"] {
+  float: left;
+  min-height: 1px;
+  margin-left: percentage($span_margin_percentage);
+}
+@mixin fluid_span ($length) {
+  @for $index from 1 through $length {
+    .row-fluid .span#{$index} {
+      width: percentage(($index * ($span_width_margin_scale + 1) - 1) * $span_margin_percentage);
+    }
+  }
+}
+@mixin fluid_offset ($length) {
+  @for $index from 1 through $length {
+    .row-fluid .offset#{$index} {
+      margin-left: percentage(($index * ($span_width_margin_scale + 1) + 1) * $span_margin_percentage);
+    }
+  }
+}
+@include fluid_span($span_length);
+@include fluid_offset($span_length);
+
