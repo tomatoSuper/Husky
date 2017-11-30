@@ -1,14 +1,12 @@
 <template>
-    <div class="ben-form">
+    <div class="ben-form-container">
       <div class="ben-form-title"></div>
-      <div class="ben-form-container">
-        <form novalidate @submit.stop.prevent="formSubmit" role="form">
-          <slot></slot>
-          <div class="ben-btn-group">
-            <button class="ben-btn-submit" :class="[(btnSubmit.actived? 'actived' : '')]"  type="submit">{{btnSubmit.text}}</button>
-          </div>
-        </form>
-      </div>
+      <form novalidate @submit.stop.prevent="formSubmit" role="form">
+        <slot></slot>
+        <div class="ben-btn-group">
+          <button class="ben-btn-submit ben-btn-3d" :class="[(btnSubmit.actived? 'actived' : '')]"  type="submit">{{btnSubmit.text}}</button>
+        </div>
+      </form>
     </div>
 </template>
 
@@ -67,6 +65,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" src="../../assets/scss/husky/benForm.scss"></style>
+<style lang="scss" scoped>
 
 </style>

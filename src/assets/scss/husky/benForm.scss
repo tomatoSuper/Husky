@@ -1,0 +1,43 @@
+@charset "UTF-8";
+$error: #f30;
+$validate:#00d1b2;
+$minWidth: 320px;
+$maxWidth: 800px;
+@mixin container ($minWidth, $maxWidth) {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width:$minWidth;
+  max-width:$maxWidth;
+  width: 100%;
+  margin: 0 auto;
+}
+.ben-form-container {
+  @include container($minWidth, $maxWidth);
+  padding:0.20rem 0.3rem;
+  .ben-form-group {
+    height:60px;
+    margin-bottom: 10px;
+    >.ben-form-control {
+      input {
+        width: 100%;
+        padding:0 15px;
+        height:40px;
+        line-height:40px;
+        border-radius: 5px;
+      }
+    }
+    p {
+      font-size:12px;
+      color: $error;
+    }
+  }
+  .ben-btn-group {
+    height:40px;
+    line-height:40px;
+    button[type=submit] {
+      width: 100%;
+      height: 40px;
+    }
+  }
+}

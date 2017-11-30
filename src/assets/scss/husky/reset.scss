@@ -1,4 +1,5 @@
 @charset "UTF-8";
+$text-init: #212121;
 body,html {
   background-color: #F5F5F5
 }
@@ -11,7 +12,7 @@ body,html {
   -webkit-tap-highlight-color: transparent
 }
 body {
-  font: .24rem/1 PingFangSC-Regular,"microsoft yahei",'Avenir', Helvetica, Arial, sans-serif;
+  font: .24rem/1 PingFangSC-Regular,"Microsoft YaHei",'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
@@ -46,25 +47,27 @@ img {
 .fl-r {
   float: right
 }
-button,input[type=number],input[type=text],input[type=tel],textarea,select {
+input[type=number],input[type=text],input[type=tel],textarea,select {
   outline: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none
+  border:1px solid #ccc;
+  font-family: PingFangSC-Regular,"Microsoft YaHei",'Avenir', Helvetica, Arial, sans-serif;
+  @include border-box();
+  @include appearance-none()
+}
+button, input[type=button],input[type=submit]{
+  outline: 0;
+  border:0 none;
+  font-family: PingFangSC-Regular,"Microsoft YaHei",'Avenir', Helvetica, Arial, sans-serif;
+  @include appearance-none();
+  @include border-radius(8px);
+  background-color: $red-B;
+  color: #ffffff;
+  &.ben-btn-3d {
+    @include btn-3d();
+  }
 }
 input::-webkit-inner-spin-button,input::-webkit-outer-spin-button {
-  -webkit-appearance: none
-}
-input[type=button] {
-  -webkit-border-radius: 0;
-  border-radius: 0
-}
-#layout {
-  max-width: 750px;
-  min-width: 320px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative
+  @include appearance-none();
 }
 .block-center {
   left: 50%;

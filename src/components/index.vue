@@ -116,51 +116,14 @@
     }
 </script>
 
-<style lang="scss">
-  @import "../assets/scss/husky/grids";
-  $warning: #e02e08;
+<style lang="scss" scoped>
+  @import "../assets/scss/husky/variable";
+  /*@import "../assets/scss/husky/grids";*/
   .container {
     .header,  .fl-l{
-      color: $warning;
-    }
-  }
-  .ben-form {
-    width: 800px;
-    margin: 0 auto;
-    padding:10px 15px;
-    .ben-form-container {
-      .ben-form-group {
-        height:60px;
-        margin-bottom: 10px;
-        input {
-          border:1px solid #ccc;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          width: 100%;
-          padding:0 15px;
-          height:40px;
-          line-height:40px;
-          border-radius: 5px;
-        }
-        p {
-          font-size:12px;
-          color: $warning;
-        }
-      }
-      .ben-btn-group {
-        height:40px;
-        line-height:40px;
-        button {
-          width: 100%;
-          height: 40px;
-        }
-      }
     }
   }
   .ben-tab-container {
-    width: 800px;
-    margin: 0 auto;
     .ben-tab-title {
       li {
         float: left;
